@@ -1,0 +1,20 @@
+const obj1 = {
+  a: 10,
+  b: 20,
+  c: 30
+}
+
+const obj2 = {
+  a: 3,
+  c: 6,
+  d: 3
+}
+
+//console.log(Object.entries(obj2))
+
+const merged = Object.entries(obj2).reduce((acc, [key, value]) => 
+  ({ ...acc, [key]: (acc[key] || 0) + value })
+, { ...obj1 });
+
+console.log(merged);
+//{ a: 13, b: 20, c: 36, d: 3}
